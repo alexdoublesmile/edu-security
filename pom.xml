@@ -8,10 +8,13 @@
     <version>2.0.3</version>
     <packaging>pom</packaging>
     <modules>
-        <module>greetings-app</module>
-        <module>greetings-service</module>
-        <module>reactive-greetings-app</module>
-        <module>reactive-greetings-service</module>
+        <module>simple-client</module>
+        <module>simple-server</module>
+        <module>reactive-client</module>
+        <module>reactive-server</module>
+        <module>jwt-bearer-authentication</module>
+        <module>jwt-cookie-authentication</module>
+        <module>jwt-shared</module>
     </modules>
 
     <properties>
@@ -20,6 +23,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <nimbus.version>9.31</nimbus.version>
     </properties>
 
     <dependencyManagement>
@@ -33,4 +37,37 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-docker-compose</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>${nimbus.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>
